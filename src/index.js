@@ -1,5 +1,5 @@
 import './style.css';
-
+import { Layer} from './Layer/index'
 console.log('funguju!');
 
 // -------------- Zprovoznění navigace -------------
@@ -9,14 +9,14 @@ const navElm = document.querySelector('nav');
 
 btnElm.addEventListener('click', () => {
   navElm.classList.toggle('nav-closed');
-})
+});
 
 const aElm = document.querySelectorAll('a');
 
 const navigation = () => {
   const navElm = document.querySelector('nav');
   navElm.classList.toggle('nav-closed');
-}
+};
 
 for (let i = 0; i < aElm.length; i++) {
   aElm[i].addEventListener('click', navigation);
@@ -30,14 +30,21 @@ let ordered = false;
 
 const order = () => {
   if (ordered === true) {
-  orderBtnElm.textContent = "Zrušit";
-  drinkCupElm.classList.toggle = "drink__cup--selected";
-  ordered = false;
+    orderBtnElm.textContent = 'Zrušit';
+    drinkCupElm.classList.toggle = 'drink__cup--selected';
+    ordered = false;
   } else {
-  orderBtnElm.textContent = "Objednat";
-  drinkCupElm.classList.toggle = "drink__cup--selected";
-  ordered = true;
+    orderBtnElm.textContent = 'Objednat';
+    drinkCupElm.classList.toggle = 'drink__cup--selected';
+    ordered = true;
   }
-}
+};
 
 orderBtnElm.addEventListener('click', order);
+
+// ------------ Komponenta Layer ------------------
+
+const drinkInfoElm = document.querySelector('.drink__info');
+drinkInfoElm.innerHTML += Layer({ color: '#feeeca', label: 'mléčná pěna' });
+drinkInfoElm.innerHTML += Layer({ color: '#feeeca', label: 'mléčná pěna' });
+drinkInfoElm.innerHTML += Layer({ color: '#feeeca', label: 'mléčná pěna' });
